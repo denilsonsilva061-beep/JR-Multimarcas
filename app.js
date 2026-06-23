@@ -1,12 +1,12 @@
 const FALLBACK_IMAGE =
-  "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80";
+  "file:///C:/Users/denil/Downloads/ChatGPT%20Image%2023%20de%20jun.%20de%202026,%2009_45_10.png";
 
 const defaultSettings = {
   storeName: "JR Multimarcas",
   storeInitials: "JR",
-  heroEyebrow: "Vitrine simples para vender online",
-  heroTitle: "Coloque seus produtos na internet hoje.",
-  heroSubtitle: "Cadastre itens, mostre fotos, organize por categoria e envie pedidos direto pelo WhatsApp.",
+  heroEyebrow: "Revendedor Autorizado",
+  heroTitle: "Pronta entrega ou faça já o seu pedido!",
+  heroSubtitle: "Envie seu pedido diretamente pelo WhatsApp.",
   heroImage: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80",
   whatsapp: "82981719446"
 };
