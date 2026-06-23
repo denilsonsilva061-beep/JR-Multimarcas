@@ -2,13 +2,13 @@ const FALLBACK_IMAGE =
   "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80";
 
 const defaultSettings = {
-  storeName: "Minha Loja",
-  storeInitials: "ML",
+  storeName: "JR Multimarcas",
+  storeInitials: "JR",
   heroEyebrow: "Vitrine simples para vender online",
   heroTitle: "Coloque seus produtos na internet hoje.",
   heroSubtitle: "Cadastre itens, mostre fotos, organize por categoria e envie pedidos direto pelo WhatsApp.",
   heroImage: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80",
-  whatsapp: "5599999999999"
+  whatsapp: "82981719446"
 };
 
 const starterProducts = [
