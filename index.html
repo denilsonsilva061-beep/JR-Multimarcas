@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title id="pageTitle">Minha Loja Online</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body data-mode="customer">
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Minha Loja Online" id="brandLink">
+        <span class="brand-mark" id="brandInitials">ML</span>
+        <span id="brandName">Minha Loja</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegacao principal">
+        <a href="#produtos">Produtos</a>
+        <a href="#contato">Comprar</a>
+        <a class="admin-only" href="#aparencia">Aparencia</a>
+        <a class="admin-only" href="#cadastro">Cadastrar</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <button class="cart-button" id="cartButton" type="button" aria-label="Abrir carrinho">
+        Carrinho <span id="cartCount">0</span>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-copy">
+          <p class="eyebrow" id="heroEyebrow">Vitrine simples para vender online</p>
+          <h1 id="heroTitle">Coloque seus produtos na internet hoje.</h1>
+          <p id="heroSubtitle">
+            Cadastre itens, mostre fotos, organize por categoria e envie pedidos direto pelo WhatsApp.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#produtos">Ver produtos</a>
+            <a class="secondary-action admin-only" href="#cadastro">Adicionar produto</a>
+            <button class="secondary-action customer-only" id="heroCartButton" type="button">Abrir carrinho</button>
+          </div>
+        </div>
+        <div class="hero-showcase" aria-label="Produtos em destaque">
+          <img id="heroImage" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" alt="Produtos em destaque">
+        </div>
+      </section>
+
+      <section class="store-toolbar" aria-label="Ferramentas da loja">
+        <label class="search-field">
+          <span>Buscar</span>
+          <input id="searchInput" type="search" placeholder="Nome do produto">
+        </label>
+        <label class="select-field">
+          <span>Categoria</span>
+          <select id="categoryFilter">
+            <option value="todos">Todas</option>
+          </select>
+        </label>
+        <label class="select-field">
+          <span>Ordenar</span>
+          <select id="sortFilter">
+            <option value="recentes">Mais recentes</option>
+            <option value="menor-preco">Menor preco</option>
+            <option value="maior-preco">Maior preco</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="products-section" id="produtos">
+        <div class="section-heading">
+          <p class="eyebrow">Produtos</p>
+          <h2>Catalogo</h2>
+        </div>
+        <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      </section>
+
+      <section class="admin-section admin-only" id="aparencia">
+        <div class="section-heading">
+          <p class="eyebrow">Aparencia</p>
+          <h2>Editar loja</h2>
+          <p>Altere nome, textos, foto principal e WhatsApp da sua loja.</p>
+        </div>
+
+        <form class="settings-form" id="settingsForm">
+          <label>
+            Nome do site
+            <input name="storeName" type="text" placeholder="Ex: Loja da Maria" required>
+          </label>
+          <label>
+            Iniciais da logo
+            <input name="storeInitials" type="text" maxlength="3" placeholder="Ex: LM" required>
+          </label>
+          <label>
+            Frase pequena da capa
+            <input name="heroEyebrow" type="text" placeholder="Ex: Moda feminina">
+          </label>
+          <label>
+            WhatsApp
+            <input name="whatsapp" type="tel" placeholder="5599999999999" required>
+          </label>
+          <label class="wide">
+            Titulo da capa
+            <input name="heroTitle" type="text" placeholder="Ex: Produtos escolhidos com carinho" required>
+          </label>
+          <label class="wide">
+            Texto da capa
+            <textarea name="heroSubtitle" rows="3" placeholder="Escreva uma descricao curta da loja"></textarea>
+          </label>
+          <label class="wide">
+            Link da foto principal
+            <input name="heroImage" type="url" placeholder="https://...">
+          </label>
+          <div class="image-preview wide">
+            <img id="settingsImagePreview" src="" alt="Previa da foto principal">
+          </div>
+          <div class="form-actions wide">
+            <button class="primary-action" type="submit">Salvar aparencia</button>
+            <button class="secondary-action" id="resetSettings" type="button">Voltar padrao</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="admin-section admin-only" id="cadastro">
+        <div class="section-heading">
+          <p class="eyebrow">Cadastro</p>
+          <h2 id="formTitle">Adicionar produto</h2>
+          <p>Use o botao Editar em qualquer produto para alterar nome, categoria, preco, foto e descricao.</p>
+        </div>
+
+        <form class="product-form" id="productForm">
+          <input name="id" type="hidden">
+          <label>
+            Nome do produto
+            <input name="name" type="text" placeholder="Ex: Camiseta premium" required>
+          </label>
+          <label>
+            Categoria
+            <input name="category" type="text" placeholder="Ex: Roupas" required>
+          </label>
+          <label>
+            Preco
+            <input name="price" type="number" min="0" step="0.01" placeholder="89.90" required>
+          </label>
+          <label>
+            Link da foto
+            <input name="image" type="url" placeholder="https://...">
+          </label>
+          <label class="wide">
+            Descricao
+            <textarea name="description" rows="4" placeholder="Fale o essencial sobre o produto"></textarea>
+          </label>
+          <div class="form-actions wide">
+            <button class="primary-action" id="submitProduct" type="submit">Cadastrar produto</button>
+            <button class="secondary-action hidden" id="cancelEdit" type="button">Cancelar edicao</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="contact-section" id="contato">
+        <div>
+          <p class="eyebrow">Contato</p>
+          <h2>Receba pedidos pelo WhatsApp</h2>
+          <p>Troque o numero no arquivo do site para usar o WhatsApp da sua loja.</p>
+        </div>
+        <a class="primary-action" id="whatsappStoreLink" href="#" target="_blank" rel="noreferrer">Falar no WhatsApp</a>
+      </section>
+    </main>
+
+    <aside class="cart-panel" id="cartPanel" aria-hidden="true">
+      <div class="cart-header">
+        <h2>Carrinho</h2>
+        <button id="closeCart" type="button" aria-label="Fechar carrinho">x</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <strong>Total: <span id="cartTotal">R$ 0,00</span></strong>
+        <a class="primary-action" id="checkoutButton" href="#" target="_blank" rel="noreferrer">Enviar pedido</a>
+      </div>
+    </aside>
+
+    <script src="app.js"></script>
+  </body>
+</html>
